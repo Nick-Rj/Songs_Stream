@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering full DOM for UserConfirmation Component 1`] = `ShallowWrapper {}`;

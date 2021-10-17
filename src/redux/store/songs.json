@@ -1,0 +1,146 @@
+{
+  "songs": [
+    {
+      "title": "Baarish Ka Asar",
+      "album_movie": "Baarish Ka Asar",
+      "singer": "Twin Strings",
+      "length": "4:09",
+      "genre": "Rock",
+      "url": "https://www.youtube.com/watch?v=VKwgNmqXwvk",
+      "id": 3
+    },
+    {
+      "title": "Tujhse Hoti Hai Subha",
+      "album_movie": "Tujhse Hoti Hai Subha - Single",
+      "singer": "Twin Strings",
+      "length": "3:53",
+      "genre": "Pop",
+      "url": "https://www.youtube.com/watch?v=lv5gKOidqQ8",
+      "id": 4
+    },
+    {
+      "title": "Dhalti Rahe",
+      "album_movie": "Dhalti Rahe - Single",
+      "singer": "Twin Strings",
+      "length": "5:03",
+      "genre": "Pop",
+      "url": "https://www.youtube.com/watch?v=mRdr75tcIGs",
+      "id": 5
+    },
+    {
+      "title": "Secrets",
+      "album_movie": "Secrets - Single",
+      "singer": "OneRepublic",
+      "length": "3:52",
+      "genre": "Pop",
+      "url": "https://www.youtube.com/watch?v=qHm9MG9xw1o",
+      "id": 8
+    },
+    {
+      "title": "The Reason",
+      "album_movie": "Hoobastank - The Reason",
+      "singer": "Hoobastank",
+      "length": "4:10",
+      "genre": "Rock",
+      "url": "https://www.youtube.com/watch?v=fV4DiAyExN0",
+      "id": 10
+    },
+    {
+      "title": "Bad Habits",
+      "album_movie": "Bad Habits",
+      "singer": "Ed Sheeran",
+      "length": "4:00",
+      "genre": "Rock",
+      "url": "https://www.youtube.com/watch?v=orJSJGHjBLI",
+      "id": 13
+    },
+    {
+      "title": "Kuch Bhi Na Mera ft. Shashaa Tirupati",
+      "album_movie": "Kuch Bhi Na Mera",
+      "singer": "Osho Jain",
+      "length": "4:41",
+      "genre": "Reprise",
+      "url": "https://www.youtube.com/watch?v=4-O1lxQTHBA",
+      "id": 15
+    },
+    {
+      "title": "Bandeya",
+      "album_movie": "Dil Juunglee",
+      "singer": "Arijit Singh | Sharib Toshi",
+      "length": "3:04",
+      "genre": "Pop",
+      "url": "https://www.youtube.com/watch?v=4tVdDrsRGEo",
+      "id": 17
+    },
+    {
+      "title": "Circles",
+      "album_movie": "Circles",
+      "singer": "Post Malone",
+      "length": "3:46",
+      "genre": "Rock",
+      "url": "https://www.youtube.com/watch?v=wXhTHyIgQ_U",
+      "added_by": "frontend_react@webdev.com",
+      "id": 19
+    },
+    {
+      "title": "Blinding Lights",
+      "album_movie": "Blinding Lights",
+      "singer": "The Weeknd",
+      "length": "4:22",
+      "genre": "Rock",
+      "url": "https://www.youtube.com/watch?v=4NRXx6U8ABQ",
+      "added_by": "frontend_react@webdev.com",
+      "id": 20
+    },
+    {
+      "title": "Lost",
+      "album_movie": "Lost",
+      "singer": "Maroon 5",
+      "length": "3:07",
+      "genre": "Pop",
+      "url": "https://www.youtube.com/watch?v=U05fwua9-D4",
+      "added_by": "frontend_react@webdev.com",
+      "id": 23
+    },
+    {
+      "title": "TUJH BIN",
+      "album_movie": "TUJH BIN",
+      "singer": "Aditya Rikhari",
+      "length": "2:55",
+      "genre": "Reprise",
+      "url": "https://www.youtube.com/watch?v=t9rwfcAcP_I",
+      "added_by": "frontend_react@webdev.com",
+      "id": 24
+    },
+    {
+      "title": "Fire",
+      "album_movie": "Carry On",
+      "singer": "The Score",
+      "length": "3:52",
+      "genre": "Rock",
+      "url": "https://www.youtube.com/watch?v=F4dctjz3tUk",
+      "added_by": "frontend_react@webdev.com",
+      "id": 25
+    },
+    {
+      "title": "OneRepublic - Let's Hurt Tonight",
+      "album_movie": "Let's Hurt Tonight",
+      "singer": "OneRepublic",
+      "length": "3:25",
+      "genre": "Pop",
+      "url": "https://www.youtube.com/watch?v=8wGN7D03Nho",
+      "added_by": "frontend_react@webdev.com",
+      "id": 26
+    },
+    {
+      "title": "Dariya- [Official Video]",
+      "album_movie": "Dariya",
+      "singer": "Vismay Patel",
+      "length": "3:45",
+      "genre": "Pop",
+      "url": "https://www.youtube.com/watch?v=bjE-rpEiKt4",
+      "added_by": "frontend_react@webdev.com",
+      "id": 27
+    }
+  ]
+}

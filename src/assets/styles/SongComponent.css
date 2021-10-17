@@ -1,0 +1,22 @@
+.SongComponent {
+  color: black;
+}
+
+.text {
+  color: black !important;
+}
+
+.right {
+  position: absolute;
+  right: 0;
+  float: right;
+  margin-right: 5em;
+}
+
+.inline-component {
+  display: inline-block !important;
+}
+
+.Popover-styling {
+  width: 40em !important;
+}

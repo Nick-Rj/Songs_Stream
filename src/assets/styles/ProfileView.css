@@ -1,0 +1,46 @@
+.ProfileView {
+  background-color: #2789b0b9;
+  height: 100vh;
+  width: 100vw;
+  color: inherit;
+}
+
+.ProfileView .profile-card {
+  margin-top: 4rem;
+}
+
+.ProfileView h1 {
+  padding-top: 2em;
+  /* color: #ecd156; */
+  padding-bottom: 1em;
+  font-weight: lighter;
+}
+
+.ProfileView h3 {
+  /* color: #ecd156; */
+  color: rgb(56, 219, 105);
+  padding-bottom: 0.5em;
+}
+
+.ProfileView p {
+  /* color: #ecd156; */
+  font-size: 1.3em;
+  color: rgb(56, 219, 105);
+  font-weight: bold;
+}
+
+.ProfileView Button {
+  margin-top: 1em;
+  margin-left: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  .ProfileView h1 {
+    font-size: 1.4rem;
+    margin-top: 2.5rem;
+  }
+
+  .ProfileView p {
+    font-size: small;
+  }
+}

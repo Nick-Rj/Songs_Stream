@@ -1,0 +1,11 @@
+.AddSongComponent {
+  height: inherit;
+  background-color: rgba(29, 63, 214, 0.507);
+  opacity: 0.9;
+  width: 100vw;
+}
+
+.AddSongComponent h1 {
+  color: rgb(56, 219, 105);
+  margin-top: 2rem;
+}

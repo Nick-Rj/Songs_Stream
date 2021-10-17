@@ -1,0 +1,25 @@
+.About {
+  height: inherit;
+  background-color: rgba(29, 63, 214, 0.507);
+  opacity: 0.9;
+  width: 100vw;
+}
+
+.About h1,
+h2,
+h4 {
+  color: rgb(56, 219, 105);
+}
+
+.About h3,
+p {
+  color: black;
+}
+
+.About h1 {
+  margin-top: 2rem;
+}
+
+.About #info {
+  color: black !important;
+}

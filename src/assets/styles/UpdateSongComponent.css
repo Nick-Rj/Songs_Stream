@@ -1,0 +1,17 @@
+.UpdateSongComponent {
+  height: inherit;
+  background-color: rgba(29, 63, 214, 0.507);
+  opacity: 0.9;
+  width: 100vw;
+}
+
+.UpdateSongComponent h1 {
+  color: rgb(56, 219, 105);
+  margin-top: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .UpdateSongComponent h1 {
+    margin-top: 2rem;
+  }
+}

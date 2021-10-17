@@ -1,0 +1,57 @@
+.Registration {
+  background-color: #1dc690cb;
+  opacity: 0.9;
+  height: 100%;
+  /* z-index: 2000; */
+}
+
+/* .Registration #header Row {
+  /* margin-top: 1em !important; 
+} */
+
+.Registration h4 {
+  color: #f8ea8c;
+  display: inline-block;
+  padding-top: 1em;
+  padding-right: 0.5em;
+  position: unset;
+}
+
+#backToLib {
+  margin-top: 1em;
+  margin-left: 0;
+}
+
+.Registration h1 {
+  color: #ffff7a;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 2em;
+}
+
+.Registration .show-element {
+  display: none;
+}
+/* #heading {
+  /* position: relative; 
+  /* margin-top: 4em; */
+/* margin-bottom: 1em; 
+} */
+@media screen and (max-width: 768px) {
+  .Registration .hide-element {
+    display: none;
+  }
+
+  .Registration h1 {
+    font-size: 1.4rem;
+    margin-top: 2em;
+  }
+  .Registration .show-element {
+    display: block;
+  }
+
+  .Registration #signin {
+    margin-top: 1em;
+    margin-left: 0;
+  }
+}

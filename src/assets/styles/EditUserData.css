@@ -1,0 +1,37 @@
+.EditUserData {
+  background-color: #1dc690cb;
+  opacity: 0.9;
+  height: 100%;
+  /* z-index: 2000; */
+}
+
+/* .Registration #header Row {
+    /* margin-top: 1em !important; 
+  } */
+
+.EditUserData h4 {
+  color: #f8ea8c;
+  display: inline-block;
+  padding-top: 1em;
+  padding-right: 0.5em;
+  position: unset;
+}
+
+#backToLib {
+  margin-top: 1em;
+  margin-left: 0;
+}
+
+.EditUserData h1 {
+  color: #ffff7a;
+  margin-top: 4rem;
+  margin-bottom: 0.5em;
+  font-size: 2em;
+}
+
+@media screen and (max-width: 768px) {
+  .EditUserData h1 {
+    font-size: 1.4rem;
+    margin-top: 2em;
+  }
+}

@@ -1,0 +1,9 @@
+.PageNotFound {
+  width: 100vw;
+  height: 100vh;
+}
+.PageNotFound #error {
+  background: url("../images/NotFound.jpg") fixed no-repeat center;
+  height: 100%;
+  width: 100%;
+}

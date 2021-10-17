@@ -1,0 +1,28 @@
+.DeleteSongsFromPlaylist {
+  height: inherit;
+  background-color: rgba(29, 63, 214, 0.507);
+  opacity: 0.9;
+  width: 100vw;
+}
+
+.DeleteSongsFromPlaylist h1 {
+  color: rgb(56, 219, 105);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.DeleteSongsFromPlaylist .scrollbar {
+  /* margin-left: 30px; */
+  float: left;
+  height: 410px;
+  width: 100%;
+  /* background: #fff; */
+  overflow-y: scroll;
+  /* margin-bottom: 25px; */
+}
+
+@media screen and (max-width: 768px) {
+  .DeleteSongsFromPlaylist .scrollbar {
+    height: 350px;
+  }
+}

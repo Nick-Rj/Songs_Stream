@@ -1,0 +1,45 @@
+.UserConfirmation {
+  background-color: #2789b0b9;
+  height: 100vh;
+  width: 100vw;
+}
+
+.UserConfirmation .profile-card {
+  margin-top: 7rem;
+}
+
+.UserConfirmation h1 {
+  padding-top: 2em;
+  /* color: #ecd156; */
+  padding-bottom: 1em;
+  font-weight: lighter;
+}
+
+.UserConfirmation h3 {
+  /* color: #ecd156; */
+  color: rgb(56, 219, 105);
+  padding-bottom: 0.5em;
+}
+
+.UserConfirmation p {
+  /* color: #ecd156; */
+  font-size: 1.3em;
+  color: rgb(56, 219, 105);
+  font-weight: bold;
+}
+
+.UserConfirmation Button {
+  margin-top: 1em;
+  margin-left: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  .UserConfirmation h1 {
+    font-size: 1.4rem;
+    margin-top: 2.5rem;
+  }
+
+  .UserConfirmation p {
+    font-size: small;
+  }
+}

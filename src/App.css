@@ -1,8 +1,216 @@
 .App {
   text-align: center;
+  background: url("./assets/images/homepage.jpg") fixed no-repeat center;
+  transition: ease-in-out 2s;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
+#splashScreen {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  position: relative;
+  font-family: "Josefin Sans", sans-serif;
+  display: block;
+  background: url("./assets/images/SplashBanner.png") center fixed no-repeat;
+  background-size: cover;
+  transition: ease-in-out 0.5s;
+  animation-name: main-window;
+  animation-duration: 8.4s;
+  animation-delay: 0.1s;
+}
+
+@keyframes main-window {
+  0% {
+    opacity: 0.5;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  40% {
+    opacity: 0.7;
+  }
+  60% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+#splashScreen #GC-1 {
+  position: absolute;
+  margin-top: 20rem;
+  margin-left: 15rem;
+  color: #ff111b;
+  font-weight: bolder;
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  font-size: 5em;
+  transition: ease-in-out 0.5s;
+  animation-name: translate-left;
+  animation-duration: 2s;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+@keyframes translate-left {
+  0% {
+    opacity: 0.5;
+    transform: translateX(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-10em);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-18em);
+  }
+}
+
+#splashScreen #GC-2 {
+  position: absolute;
+  color: #013a20;
+  font-weight: bolder;
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  font-size: 5em;
+  margin-top: 10rem;
+  opacity: 0;
+  transition: ease-in-out 0.5s;
+  animation-name: translate-right;
+  animation-duration: 2s;
+  animation-delay: 2.1s;
+}
+
+@keyframes translate-right {
+  0% {
+    opacity: 0.5;
+    transform: translateX(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(7em);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(8em);
+  }
+}
+
+#splashScreen #GC-3 {
+  position: absolute;
+  color: #ff7c19;
+  font-weight: bolder;
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  font-size: 5em;
+  margin-top: 30rem;
+  margin-right: 5rem;
+  opacity: 0;
+  transition: ease-in-out 0.5s;
+  animation-name: translate-top;
+  animation-duration: 2s;
+  animation-delay: 4.1s;
+}
+
+@keyframes translate-top {
+  0% {
+    opacity: 0.5;
+    transform: translateX(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(-3em);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-4em);
+  }
+}
+
+/* #splashScreen #logoCenter {
+  text-align: center;
+} */
+
+#splashScreen #GC-4 {
+  display: block;
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  margin-top: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transition: ease-in-out 0.5s;
+  animation-name: zoom-in;
+  animation-duration: 2s;
+  animation-delay: 6.1s;
+  /* background: url("./assets/images/Logo.png") center fixed no-repeat;
+  background-size: cover; */
+}
+
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  60% {
+    opacity: 0.7;
+  }
+
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#mainApp {
+  display: none;
+}
+
+.pages {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  /* font-size: 5rem; */
+}
+
+@media screen and (max-width: 768px) {
+  #splashScreen #GC-1 {
+    font-size: 3em;
+    margin-top: 25rem;
+  }
+
+  #splashScreen #GC-2 {
+    font-size: 3em;
+  }
+
+  #splashScreen #GC-3 {
+    font-size: 3em;
+    margin-top: 15rem;
+  }
+}
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +243,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

@@ -1,0 +1,39 @@
+.PlaylistViewComponent {
+  height: inherit;
+  background-color: rgba(29, 63, 214, 0.507);
+  opacity: 0.9;
+  width: 100vw;
+}
+
+.PlaylistViewComponent h1 {
+  color: rgb(56, 219, 105);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.PlaylistViewComponent .featureBtns {
+  margin-bottom: 1rem;
+}
+
+.PlaylistViewComponent .scrollbar {
+  /* margin-left: 30px; */
+  float: left;
+  height: 320px;
+  width: 100%;
+  /* background: #fff; */
+  overflow-y: scroll;
+  /* margin-bottom: 25px; */
+}
+
+@media screen and (max-width: 768px) {
+  .PlaylistViewComponent .featureBtns {
+    margin-bottom: 0;
+  }
+  .PlaylistViewComponent .featureBtns .btnCols {
+    margin-bottom: 0.5rem;
+  }
+
+  .PlaylistViewComponent .hide-element {
+    display: none;
+  }
+}

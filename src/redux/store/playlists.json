@@ -1,0 +1,107 @@
+{
+  "playlists": [
+    {
+      "title": "Calm Songs",
+      "songsIDs": [
+        3,
+        4,
+        10,
+        5,
+        17,
+        24,
+        26,
+        8,
+        15
+      ],
+      "accessCount": 66,
+      "id": 1
+    },
+    {
+      "title": "Roadtrip playlist",
+      "songsIDs": [
+        10,
+        5,
+        19,
+        26
+      ],
+      "accessCount": 41,
+      "id": 4
+    },
+    {
+      "title": "Morning Coffee",
+      "songsIDs": [
+        3,
+        10,
+        18,
+        8,
+        5,
+        21
+      ],
+      "accessCount": 29,
+      "id": 6
+    },
+    {
+      "title": "Concentration Music",
+      "songsIDs": [
+        8,
+        15,
+        19,
+        21
+      ],
+      "accessCount": 22,
+      "id": 7
+    },
+    {
+      "title": "Travel Medley",
+      "songsIDs": [
+        3,
+        4,
+        5,
+        8,
+        17,
+        20,
+        26
+      ],
+      "accessCount": 14,
+      "id": 8
+    },
+    {
+      "title": "Calm & Peace",
+      "songsIDs": [
+        5,
+        15,
+        17,
+        27
+      ],
+      "accessCount": 7,
+      "id": 9
+    },
+    {
+      "title": "Party Mix Playlist",
+      "songsIDs": [],
+      "accessCount": 1,
+      "id": 10
+    },
+    {
+      "title": "Roadtrips Medley",
+      "songsIDs": [
+        5,
+        3,
+        20,
+        19
+      ],
+      "accessCount": 8,
+      "id": 11
+    },
+    {
+      "title": "Soothing Tracks",
+      "songsIDs": [
+        5,
+        15,
+        22
+      ],
+      "accessCount": 1,
+      "id": 12
+    }
+  ]
+}

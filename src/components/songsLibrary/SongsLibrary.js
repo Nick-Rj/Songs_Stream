@@ -48,7 +48,7 @@ const SongsLibrary = ({
   const handleShow = () => setShow(true);
 
   const filterSongs = (song, query) => {
-    console.log("Searched", song.title.toLowerCase());
+    // console.log("Searched", song.title.toLowerCase());
     return song.title.toLowerCase().includes(query.toLowerCase());
   };
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { withRouter, Prompt } from "react-router";
-import { updateSong, updateUser } from "../../redux/store";
+import { updateSong } from "../../redux/store";
 import {
   FloatingLabel,
   Container,
@@ -25,10 +25,7 @@ const AnimateUpdateSong = styled.div`
 const UpdateSongComponent = withRouter(
   ({ history, userData, updateSong, ...props }) => {
     const song = props.location.state || {};
-    useEffect(() => {
-      console.log("Song Data inside update", song);
-      console.log("User Data inside song update", userData);
-    }, []);
+    useEffect(() => {}, []);
 
     const [show, setShow] = useState(false);
     const [songObj, setSongObj] = useState({});
@@ -39,7 +36,7 @@ const UpdateSongComponent = withRouter(
 
     const handleUpdateSong = () => {
       updateSong(song.id, songObj);
-      alert(`${songObj.title} added successfully!`);
+      alert(`${songObj.title} updated successfully!`);
       history.push("/songsLibrary");
     };
 
@@ -73,9 +70,6 @@ const UpdateSongComponent = withRouter(
         ) {
           alert("No changes found!");
         } else {
-          console.log("Values before adding", values);
-          console.log("Song values", song);
-          //   addSong(values);
           setSongObj(values);
           setIsSubmitted(true);
           handleShow();

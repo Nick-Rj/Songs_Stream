@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {
-  FloatingLabel,
-  Container,
-  Form,
-  Row,
-  Button,
-  Col,
-  Modal,
-  Accordion,
-} from "react-bootstrap";
+import { Container, Row, Button, Col } from "react-bootstrap";
 import { connect } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { getAllPlaylists } from "../../redux/store";
 import {
   Chart,
@@ -39,9 +30,8 @@ import {
   Tooltip,
   SubTitle,
 } from "chart.js";
-import Loader from "react-spinners/CircleLoader";
+
 import LoaderAnimation from "./LoaderAnimation";
-// import TopPlaylistView from "./TopPlaylistView";
 import "../../assets/styles/TopPlaylistsChart.css";
 
 Chart.register(
@@ -96,8 +86,6 @@ const TopPlaylistsChart = ({
       setTopPlaylists([topPlaylists.push(sortedPlaylist[i])]);
     }
 
-    console.log("Sorted Playlist", sortedPlaylist);
-    console.log("Top Playlists", topPlaylists);
     topPlaylistsData = topPlaylists.map((playlist) => [
       playlist.id,
       playlist.title,
@@ -141,35 +129,11 @@ const TopPlaylistsChart = ({
 
   useEffect(() => {
     setTimeout(fetchTopPlaylists, 2000);
-    // fetchTopPlaylists();
-    console.log(
-      "Top playlists IDs",
-      topPlaylists.map((playlist) => playlist.id)
-    );
+
     setTimeout(() => {
       displayChart();
       viewChart();
     }, 4000);
-
-    // setPlaylists({
-    //   playlists: playlists.sort((a, b) => b.accessCount - a.accessCount),
-    // });
-
-    // let selectedPlaylists = [];
-    // for (let i = 0; i < 5; i++) {
-    //   selectedPlaylists.push(playlists[i]);
-    // }
-
-    // setTopPlaylists(selectedPlaylists);
-    // // setPlaylists({
-    // //   playlists: playlistData.playlist,
-    // // });
-    // // const sortedPlaylist = playlists;
-    // // sortedPlaylist.sort((a, b) => b.accessCount - a.accessCount);
-
-    // // setPlaylists(playlists.sort((a, b) => b.accessCount - a.accessCount));
-    // console.log("All the playlists inside charts", playlists);
-    // console.log("Top playlists", topPlaylists);
   }, []);
 
   const backtoPlaylist = () => {
@@ -220,26 +184,6 @@ const TopPlaylistsChart = ({
           </Col>
         </Row>
       </Container>
-      {/* <TopPlaylistView topPlaylists={topPlaylists} /> */}
-      {/* <Container>
-          <Row>
-            <Col>
-              <Button>{topPlaylistsData[0][1]}</Button>
-            </Col>
-            <Col>
-              <Button>{topPlaylistsData[1][1]}</Button>
-            </Col>
-            <Col>
-              <Button>{topPlaylistsData[2][1]}</Button>
-            </Col>
-            <Col>
-              <Button>{topPlaylistsData[3][1]}</Button>
-            </Col>
-            <Col>
-              <Button>{topPlaylistsData[4][1]}</Button>
-            </Col>
-          </Row>
-        </Container> */}
     </div>
   );
 };

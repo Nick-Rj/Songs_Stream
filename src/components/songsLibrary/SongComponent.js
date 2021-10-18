@@ -1,28 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  Accordion,
-  Button,
-  Card,
-  Modal,
-  Overlay,
-  OverlayTrigger,
-  Popover,
-  Toast,
-} from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Card, Modal } from "react-bootstrap";
 import { withRouter, useHistory } from "react-router-dom";
 import { deleteSong } from "../../redux/store";
 import { connect } from "react-redux";
 
 import "../../assets/styles/SongComponent.css";
 const SongComponent = withRouter(
-  ({
-    history,
-    deleteSong,
-    userLoggedInStatus,
-    song,
-    isSongsLibrary,
-    viewDataStatus,
-  }) => {
+  ({ deleteSong, userLoggedInStatus, song, isSongsLibrary }) => {
     const toUpdateSong = useHistory();
     const handleUpdate = (data) => {
       toUpdateSong.push({
@@ -30,9 +14,6 @@ const SongComponent = withRouter(
         state: data,
       });
     };
-    // useEffect(() => {
-    //   console.log("View Data Status", viewDataStatus);
-    // }, []);
 
     const [show, setShow] = useState(false);
 

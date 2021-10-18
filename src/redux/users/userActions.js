@@ -26,7 +26,6 @@ export const getAllUsers = () => {
     axios
       .get("https://songs-stream-data-server-app.herokuapp.com/users")
       .then((response) => {
-        console.log("Get all users", response.data);
         dispatch(fetchAllUsersSuccess(response.data));
       })
       .catch((error) => dispatch(fetchAllUsersFailure(error)));
@@ -39,7 +38,6 @@ export const registerUser = (values) => {
     axios
       .post("https://songs-stream-data-server-app.herokuapp.com/users", values)
       .then((response) => {
-        console.log("axios in registerUser", response.data);
         dispatch(registerUserSuccess(response.data));
       })
       .catch((error) => dispatch(registerUserFailure(error)));
@@ -50,9 +48,11 @@ export const updateUser = (id, user) => {
   return (dispatch) => {
     dispatch(updateUserRequest());
     axios
-      .put(`https://songs-stream-data-server-app.herokuapp.com/users/${id}`, user)
+      .put(
+        `https://songs-stream-data-server-app.herokuapp.com/users/${id}`,
+        user
+      )
       .then((response) => {
-        console.log("Inside update user action", response.data);
         dispatch(updateUserSuccess(response.data));
       })
       .catch((error) => dispatch(updateUserFailure(error)));

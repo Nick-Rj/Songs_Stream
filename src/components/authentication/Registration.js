@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { withRouter, useHistory, Prompt } from "react-router";
+import { withRouter, Prompt } from "react-router";
 import {
   FloatingLabel,
   Container,
@@ -11,7 +11,7 @@ import {
   Col,
   Modal,
 } from "react-bootstrap";
-import { RouterPrompt } from "../utilities/RouterPrompt";
+
 import { Link } from "react-router-dom";
 import { registerUser, getAllUsers } from "../../redux/store";
 import { connect } from "react-redux";
@@ -25,8 +25,8 @@ const AnimateRegistration = styled.div`
 
 const Registration = withRouter(
   ({ history, userState, registerUser, getAllUsers }) => {
-    const destination = useHistory();
-    const [showPrompt, setShowPrompt] = useState(false);
+    // const destination = useHistory();
+    // const [showPrompt, setShowPrompt] = useState(false);
     const [userObj, setUserObj] = useState({});
 
     const [show, setShow] = useState(false);
@@ -35,27 +35,9 @@ const Registration = withRouter(
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    // const handleRoute = () => {
-    //   if (
-    //     formik.values.firstName.length > 0 ||
-    //     formik.values.lastName.length > 0 ||
-    //     formik.values.location.length > 0 ||
-    //     formik.values.phone !== 0 ||
-    //     formik.values.email.length > 0 ||
-    //     formik.values.password.length > 0
-    //   ) {
-    //     setShowPrompt(true);
-    //     alert("Data inserted!");
-    //     alert("prompt value" + ` ${showPrompt === true ? "true" : "false"}`);
-    //   }
-    //   // destination.push("/songsLibrary");
-    //   setImmediate(() => destination.push("/songsLibrary"));
-    // };
-
     useEffect(() => {
       getAllUsers();
     }, []);
-    console.log("After useEffect", userState);
 
     const checkUser = (user) => {
       let emails = userState.users.map((user) => user.email);
@@ -89,7 +71,6 @@ const Registration = withRouter(
       }),
 
       onSubmit: (values) => {
-        // alert(JSON.stringify(values, null, 3));
         if (checkUser(values) === false) {
           alert("User already exists, please login");
         } else {
@@ -106,14 +87,6 @@ const Registration = withRouter(
     };
     return (
       <div className="Registration">
-        {/* <RouterPrompt
-          when={showPrompt}
-          title="Leave this page"
-          cancelText="Cancel"
-          okText="Confirm"
-          onOK={() => true}
-          onCancel={() => false}
-        /> */}
         <Prompt
           when={
             (formik.values.firstName.length > 0 ||
@@ -372,7 +345,6 @@ const Registration = withRouter(
 );
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     userState: state.user,
   };

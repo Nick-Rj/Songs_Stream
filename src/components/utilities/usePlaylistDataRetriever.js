@@ -5,12 +5,7 @@ const usePlaylistDataRetriever = (playlistID, songsData) => {
   const [playlist, setPlaylist] = useState({});
   const [songsResult, setSongsResult] = useState([]);
   const [error, setError] = useState(null);
-  // const [emptyID, setEmptyID] = useState([]);
-  // const [songsToRemove, setSongsToRemove] = useState([]);
 
-  //   let handlePlaylistSuccessFetch = (playlistData) => setPlaylist(playlistData);
-  //   let handleSongsFetch = (songsData) => setSongsResult(songsData);
-  //   let handleError = (error) => setError(error);
   let emptyIDs = [];
 
   const fetchPlaylistByID = (id) =>
@@ -23,11 +18,10 @@ const usePlaylistDataRetriever = (playlistID, songsData) => {
       .catch((error) => setError(error));
 
   const getSongsFromPlaylist = (playlist) => {
-    console.log("Playlist data from GET API", playlist);
     const playlistIDs = playlist.songsIDs;
-    console.log("SOng IDs from playlist", playlistIDs);
+
     const songsArr = songsData.songs.map((song) => song.id);
-    console.log("All songs Positions", songsArr);
+
     let songPositions = [];
     emptyIDs = [];
     playlistIDs.forEach((id) => {
@@ -37,12 +31,7 @@ const usePlaylistDataRetriever = (playlistID, songsData) => {
         songPositions.push(songsArr.indexOf(id));
       }
     });
-    console.log("All empty IDs", emptyIDs);
-    if (emptyIDs.length !== 0) {
-      // setSongsToRemove(emptyIDs);
-      console.log("There are empty songs", emptyIDs);
-    }
-    console.log("Position of songs in the playlist", songPositions);
+
     setSongsResult([]);
     songPositions.forEach((id) => {
       if (id === -1) {
@@ -50,7 +39,6 @@ const usePlaylistDataRetriever = (playlistID, songsData) => {
         setSongsResult((oldArr) => [...oldArr, songsData.songs[id]]);
       }
     });
-    console.log("All the songs Data inside Playlist", songsResult.length);
   };
 
   useEffect(() => {

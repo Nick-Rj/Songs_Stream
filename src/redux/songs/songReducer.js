@@ -82,14 +82,10 @@ const songReducer = (state = initialState, action) => {
 
     case DELETE_SONG_SUCCESS:
       const ids = state.songs.map((song) => song.id);
-      // console.log("All the song ids", ids);
-      // console.log("Index of", ids.indexOf(21));
       songs = state.songs.slice(0, ids.indexOf(action.payload));
       songs = songs.concat([
         ...state.songs.slice(ids.indexOf(action.payload) + 1),
       ]);
-      // console.log("Songs after deleting", songs);
-      // console.log("IDs", ids);
       return {
         loading: false,
         songs: songs,

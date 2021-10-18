@@ -1,20 +1,9 @@
 import React from "react";
 import HashLoader from "react-spinners/HashLoader";
-import {
-  FloatingLabel,
-  Container,
-  Form,
-  Row,
-  Button,
-  Col,
-  Modal,
-  Accordion,
-} from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 const overrideCSS = {
   display: "block",
-  //   width: "30rem",
-  //   height: "30rem",
 };
 
 const LoaderAnimation = () => {

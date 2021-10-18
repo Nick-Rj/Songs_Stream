@@ -6,7 +6,6 @@ import {
   Button,
   Row,
   Col,
-  Card,
   FloatingLabel,
   Container,
   Form,
@@ -14,14 +13,7 @@ import {
 } from "react-bootstrap";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import {
-  NavLink,
-  Link,
-  Redirect,
-  withRouter,
-  useHistory,
-  Prompt,
-} from "react-router-dom";
+import { Link, withRouter, Prompt } from "react-router-dom";
 
 import styled, { keyframes } from "styled-components";
 import { bounceIn } from "react-animations";
@@ -31,8 +23,6 @@ const AnimateProfileUpdate = styled.div`
 `;
 
 const EditUserData = withRouter(({ history, userData, updateUser }) => {
-  console.log("Inside Edit User", userData);
-
   const [show, setShow] = useState(false);
   const [userObj, setUserObj] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -69,8 +59,7 @@ const EditUserData = withRouter(({ history, userData, updateUser }) => {
 
     onSubmit: (values) => {
       const userObj = { ...userData.user };
-      //   let destination = useHistory();
-      console.log(userData.user.id);
+
       if (
         values.firstName === userObj.firstName &&
         values.lastName === userObj.lastName &&
@@ -79,8 +68,6 @@ const EditUserData = withRouter(({ history, userData, updateUser }) => {
       ) {
         alert("No changes found!");
       } else {
-        // alert(JSON.stringify(values, null, 3));
-        // handleUpdateUser(values);
         setUserObj(values);
         setIsSubmitted(true);
         handleShow();

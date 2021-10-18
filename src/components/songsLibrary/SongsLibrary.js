@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, Suspense } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import {
   Col,
   Container,
@@ -7,7 +7,6 @@ import {
   Accordion,
   Spinner,
   Modal,
-  ListGroup,
   Form,
   FloatingLabel,
 } from "react-bootstrap";
@@ -17,21 +16,7 @@ import { userLogoutSuccess, getAllSongs } from "../../redux/store";
 import "../../assets/styles/SongLibrary.css";
 import "../../assets/styles/ScrollbarStyles.css";
 import styled, { keyframes } from "styled-components";
-import {
-  pulse,
-  tada,
-  lightSpeedIn,
-  rollIn,
-  bounce,
-  bounceIn,
-  rubberBand,
-  fadeIn,
-  flash,
-  zoomInUp,
-  slideInUp,
-  jello,
-  swing,
-} from "react-animations";
+import { fadeIn } from "react-animations";
 import LoaderAnimation from "../utilities/LoaderAnimation";
 const SongComponent = React.lazy(() => {
   return new Promise((resolve) => {
@@ -40,14 +25,6 @@ const SongComponent = React.lazy(() => {
     }, 8000);
   });
 });
-// setTimeout(resolve, 3 * 1000)).then(() =>
-//   Math.floor(Math.random * 10) >= 4
-//     ? import("./SongComponent")
-//     : Promise.reject(new Error())
-// );
-
-// import SongComponent from "./SongComponent";
-// import SearchBar from "../utilities/SearchBar";
 
 const AnimateSongsLibrary = styled.div`
   animation: 1.5s ${keyframes`${fadeIn}`};
@@ -59,37 +36,10 @@ const SongsLibrary = ({
   userLogoutSuccess,
   getAllSongs,
 }) => {
-  // let filteredSongs = songData.songs;
-
   useEffect(() => {
     getAllSongs();
-    // const result = document.getElementById("searchData").value;
-    // filteredSongs = filterSongs(songData.songs, result);
-    // console.log("Filtered Songs in useEffect", filteredSongs);
-    // const ids = songData.songs.map((song) => song.id);
-    // console.log("All the song ids", ids);
-    // console.log("Index of", ids.indexOf(2));
-    // let songs = songData.songs.slice(0, ids.indexOf(2));
-    // songs = songs.concat([...songData.songs.slice(ids.indexOf(2) + 1)]);
-    // console.log("Songs after deleting", songs);
   }, []);
 
-  console.log("Inside Songs Library", userData);
-  console.log("Songs in Library", songData);
-
-  const [showViewData, setShowViewData] = useState(false);
-  const [toLogout, setToLogout] = useState(!userData.isLoggedIn);
-
-  const handleCloseViewData = () => setShowViewData(false);
-  const handleShowViewData = () => setShowViewData(true);
-
-  const [viewTitle, setViewTitle] = useState(true);
-  const [viewSinger, setViewSinger] = useState(true);
-  const [viewAlbum, setViewAlbum] = useState(true);
-  const [viewGenre, setViewGenre] = useState(true);
-  const [viewLength, setViewLength] = useState(true);
-
-  const viewArray = [true, true, true, true, true];
   const [searchData, setSearchData] = useState("");
 
   const [show, setShow] = useState(false);
@@ -98,29 +48,13 @@ const SongsLibrary = ({
   const handleShow = () => setShow(true);
 
   const filterSongs = (song, query) => {
-    // if (query.length === 0) {
-    //   return true;
-    // }
     console.log("Searched", song.title.toLowerCase());
     return song.title.toLowerCase().includes(query.toLowerCase());
-
-    // console.log("SOngs inside filter", songs);
-    // return songs.filter((song) => {
-    //   const songName = song.title;
-    //   console.log("Song Name");
-    //   return songName.includes(query);
-    // });
   };
 
-  // let result = "";
   let filteredSongs = songData.songs;
   const handleSearchChange = (data) => {
-    // result = document.getElementById("searchData").value;
-    // filteredSongs = filterSongs(songData.songs, result);
     setSearchData(data);
-    // console.log("Filtered Songs", filteredSongs);
-    // console.log("Result", result.length);
-    // console.log("Search State", searchData);
   };
   filteredSongs =
     searchData === ""

@@ -1,36 +1,12 @@
 import React, { Component } from "react";
-import {
-  FloatingLabel,
-  Container,
-  Form,
-  Row,
-  Button,
-  Col,
-  Modal,
-  Accordion,
-  ListGroup,
-} from "react-bootstrap";
+import { Container, Row, Button, Col, Modal, ListGroup } from "react-bootstrap";
 import "../../assets/styles/AddSongsToPlaylist.css";
 import "../../assets/styles/ScrollbarStyles.css";
 import { connect } from "react-redux";
-import { Link, withRouter, Prompt } from "react-router-dom";
+import { withRouter, Prompt } from "react-router-dom";
 import { updatePlaylist } from "../../redux/store";
 import styled, { keyframes } from "styled-components";
-import {
-  pulse,
-  tada,
-  lightSpeedIn,
-  rollIn,
-  bounce,
-  bounceIn,
-  rubberBand,
-  fadeIn,
-  flash,
-  zoomInUp,
-  slideInUp,
-  jello,
-  swing,
-} from "react-animations";
+import { rubberBand } from "react-animations";
 
 const AnimateAddSongsToPlaylist = styled.div`
   animation: 1.5s ${keyframes`${rubberBand}`};
@@ -50,29 +26,9 @@ export class AddSongsToPlaylist extends Component {
     };
 
     this.backtoPlaylist = this.backtoPlaylist.bind(this);
-    console.log("Playlist title inside add songs", this.state.playlist);
-    console.log("All songs inside playlist", this.state.songsFromPlaylist);
-    console.log("Current ID", this.props.match.params.id);
   }
 
-  // componentDidMount() {
-  //   this.setState({
-  //     songs: [...songsFromPlaylist.map((song) => song.title)],
-  //   });
-  // }
-
-  componentDidUpdate() {
-    console.log("Updated State", this.state.songs);
-    console.log("Playlist ID", this.props.match.params.id);
-    // if (this.state.songsFromPlaylist.length === 0)
-    //   this.setState({
-    //     songs: this.removeDuplicateSongsFromArray([
-    //       ...this.state.songs,
-    //       ...this.state.songsFromPlaylist.map((song) => song.title),
-    //     ]),
-    //   });
-    // console.log("Updated list of songs in state", this.state.songs);
-  }
+  componentDidUpdate() {}
 
   backtoPlaylist() {
     this.props.history.push({
@@ -86,17 +42,13 @@ export class AddSongsToPlaylist extends Component {
   }
 
   onChange = (event) => {
-    // console.log(event.target.checked);
-
     const isChecked = event.target.checked;
     if (isChecked) {
       this.setState({ songs: [...this.state.songs, event.target.value] });
-      console.log("Adding songs to list", this.state.songs);
     } else {
       const index = this.state.songs.indexOf(event.target.value);
       this.state.songs.splice(index, 1);
       this.setState({ songs: this.state.songs });
-      console.log("After removing songs", this.state.songs);
     }
   };
 
@@ -113,7 +65,7 @@ export class AddSongsToPlaylist extends Component {
       alert("No songs selected...");
     } else {
       const songNames = this.props.songData.songs.map((song) => song.title);
-      console.log("All songs to be added", this.state.songs);
+
       let tempIndexes = [];
 
       const songsToBeAdded = [
@@ -132,19 +84,10 @@ export class AddSongsToPlaylist extends Component {
       }
 
       songsIDs = this.removeDuplicateSongsFromArray(songsIDs);
-      console.log("All song ids to be added", songsIDs);
 
       this.setState({ songsIDs: songsIDs });
       this.setState({ isSubmitted: true });
       this.handleShow();
-      // for (let i = 0; i < songsIDs.length; i++) {
-      //   this.props.deleteSong(songsIDs[i]);
-      // }
-
-      // this.props.getAllSongs();
-
-      // //   this.props.onHide()
-      // this.props.history.push("/songsLibrary");
     }
   };
 
@@ -160,7 +103,6 @@ export class AddSongsToPlaylist extends Component {
     } else {
       this.props.updatePlaylist(this.props.match.params.id, playlist);
     }
-
     this.backtoPlaylist();
   };
 
@@ -210,12 +152,9 @@ export class AddSongsToPlaylist extends Component {
                           <span style={{ float: "left" }}>
                             <input
                               type="checkbox"
-                              // id={`custom-checkbox-${song.id}`}
                               name={song.title}
                               value={song.title}
-                              // checked={checkedState[song.id]}
                               onChange={this.onChange}
-                              // onClick={changeHandler}
                             />
                           </span>
                           <span style={{ float: "left", marginLeft: "1rem" }}>

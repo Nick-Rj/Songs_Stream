@@ -12,7 +12,6 @@ import {
   Col,
   Modal,
   Card,
-  Alert,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {
@@ -22,21 +21,7 @@ import {
 } from "../../redux/store";
 
 import styled, { keyframes } from "styled-components";
-import {
-  pulse,
-  tada,
-  lightSpeedIn,
-  rollIn,
-  bounce,
-  bounceIn,
-  rubberBand,
-  fadeIn,
-  flash,
-  zoomInUp,
-  slideInUp,
-  jello,
-  swing,
-} from "react-animations";
+import { fadeIn } from "react-animations";
 
 const AnimateManagePlaylists = styled.div`
   animation: 4s ${keyframes`${fadeIn}`};
@@ -44,29 +29,11 @@ const AnimateManagePlaylists = styled.div`
 
 const ManagePlaylists = withRouter(
   ({ playlistData, getAllPlaylists, addPlaylist, deletePlaylist }) => {
+    const [playlistObj, setPlaylistObj] = useState({});
     useEffect(() => {
       getAllPlaylists();
-      console.log("All the playlists", playlistData);
     }, []);
 
-    //   let viewData = null;
-    //   if (playlistData.playlists === undefined) {
-    //     viewData = <h2>Oops! No Playlists Found</h2>;
-    //   } else {
-    //     viewData = playlistData.playlists.map((playlist) => (
-    //       <Card style={{ width: "100%" }}>
-    //         <Card.Body>
-    //           <Card.Title>{playlist.title}</Card.Title>
-    //           <Card.Subtitle className="mb-2 text-muted">
-    //             Card Subtitle
-    //           </Card.Subtitle>
-
-    //           <Card.Link href="#">Card Link</Card.Link>
-    //           <Card.Link href="#">Another Link</Card.Link>
-    //         </Card.Body>
-    //       </Card>
-    //     ));
-    //   }
     const colors = [
       "primary",
       "secondary",
@@ -117,9 +84,14 @@ const ManagePlaylists = withRouter(
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleDeletePlaylist = (playlist) => {
-      alert(`${playlist.title} delete successfully!`);
-      deletePlaylist(playlist.id);
+    const handleCheckDelete = (playlist) => {
+      setPlaylistObj(playlist);
+      handleShow();
+    };
+
+    const handleDeletePlaylist = () => {
+      alert(`${playlistObj.title} delete successfully!`);
+      deletePlaylist(playlistObj.id);
 
       handleClose();
     };
@@ -206,11 +178,7 @@ const ManagePlaylists = withRouter(
               <Col xs={12} sm={12} lg={6}>
                 <Form style={{ marginTop: ".5rem", marginBottom: ".5rem" }}>
                   <Form.Group className="mb-1" controlId="search-bar">
-                    <FloatingLabel
-                      controlId="floatingInput"
-                      label="Search"
-                      className="mb-1"
-                    >
+                    <FloatingLabel label="Search" className="mb-1">
                       <Form.Control
                         id="searchData"
                         type="text"
@@ -232,8 +200,8 @@ const ManagePlaylists = withRouter(
                 {playlistData.playlists === undefined ? (
                   <h2>Oops! No Playlists Found!</h2>
                 ) : (
-                  <div class="scrollbar scrollbar-dusty-grass">
-                    <div class="force-overflow">
+                  <div className="scrollbar scrollbar-dusty-grass">
+                    <div className="force-overflow">
                       {filteredPlaylists.length === 0 ? (
                         <h2>Oops! No Playlists Found!</h2>
                       ) : (
@@ -261,7 +229,10 @@ const ManagePlaylists = withRouter(
                                   <Col>
                                     <Button
                                       variant="danger"
-                                      onClick={handleShow}
+                                      onClick={handleCheckDelete.bind(
+                                        this,
+                                        playlist
+                                      )}
                                     >
                                       Delete Playlist
                                     </Button>
@@ -278,7 +249,7 @@ const ManagePlaylists = withRouter(
                                         </Modal.Title>
                                       </Modal.Header>
                                       <Modal.Body>
-                                        {playlist.title} will be deleted
+                                        {playlistObj.title} will be deleted
                                         permanently. Are you sure?
                                       </Modal.Body>
                                       <Modal.Footer>
@@ -290,9 +261,7 @@ const ManagePlaylists = withRouter(
                                         </Button>
                                         <Button
                                           variant="danger"
-                                          onClick={() =>
-                                            handleDeletePlaylist(playlist)
-                                          }
+                                          onClick={() => handleDeletePlaylist()}
                                         >
                                           Delete
                                         </Button>

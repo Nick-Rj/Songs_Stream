@@ -2,13 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../assets/styles/Dashboard.css";
 import "../../assets/styles/ScrollbarStyles.css";
 import styled from "styled-components";
-import {
-  NavLink,
-  Link,
-  Redirect,
-  withRouter,
-  useHistory,
-} from "react-router-dom";
+import { NavLink, withRouter, useHistory } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import {
@@ -177,19 +171,12 @@ const Dashboard = withRouter(
   }) => {
     let destination = useHistory();
     useEffect(() => {
-      console.log("History", history);
-      // console.log("Match", match);
-      console.log("location", history.location.pathname);
-      // if (history.location.pathname === "/") {
-      //   <Redirect to="/songsLibrary" />;
-      // }
       if (history.location.pathname === "/") {
         destination.push("/songsLibrary");
       }
-      console.log("User Data in Dashboard", userState);
+
       getAllPlaylists();
       getAllSongs();
-      console.log("Playlist Data inside Dashboard", playlistData.playlists);
     }, []);
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
@@ -204,18 +191,13 @@ const Dashboard = withRouter(
     };
 
     const updateAccessCount = (playlistID) => {
-      console.log(
-        "Playlist Data inside Dashboard from function",
-        playlistData.playlists
-      );
       const playlistIDs = playlistData.playlists.map((playlist) => playlist.id);
       const currentIndex = playlistIDs.indexOf(playlistID);
       const currentPlaylist =
         currentIndex === -1
           ? null
           : playlistData.playlists[playlistIDs.indexOf(playlistID)];
-      console.log("Going to playlist", playlistID);
-      console.log("Current playlist in dashboard", currentPlaylist);
+
       let playlistObj = null;
 
       if (currentPlaylist !== null) {
@@ -225,7 +207,6 @@ const Dashboard = withRouter(
           accessCount: currentPlaylist.accessCount + 1,
         };
       }
-      console.log("Result playlist", playlistObj);
       updatePlaylist(playlistID, playlistObj);
     };
 

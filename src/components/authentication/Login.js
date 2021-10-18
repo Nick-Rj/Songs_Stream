@@ -19,15 +19,7 @@ import {
 import { Link } from "react-router-dom";
 import "../../assets/styles/Login.css";
 import styled, { keyframes } from "styled-components";
-import {
-  pulse,
-  tada,
-  lightSpeedIn,
-  rollIn,
-  bounceIn,
-  rubberBand,
-  fadeIn,
-} from "react-animations";
+import { rubberBand } from "react-animations";
 
 const AnimateLogin = styled.div`
   animation: 1.5s ${keyframes`${rubberBand}`};
@@ -35,11 +27,10 @@ const AnimateLogin = styled.div`
 
 const Login = withRouter(
   ({ history, userData, getAllUsers, userLoginSuccess, clearAllUsers }) => {
-    console.log("Inside Login", userData);
     useEffect(() => {
       getAllUsers();
     }, []);
-    console.log("Inside Login after useEffect", userData);
+
     const formik = useFormik({
       initialValues: {
         email: "",
@@ -53,22 +44,21 @@ const Login = withRouter(
       onSubmit: (values) => {
         let emails = userData.users.map((user) => user.email);
         let user = userData.users[emails.indexOf(values.email)];
-        console.log(emails);
+
         if (emails.indexOf(values.email) === -1) {
           alert("User not found! Please sign up");
         } else {
           if (user.password === values.password) {
             alert("Login Successful!");
-            console.log("After login", userData);
+
             userLoginSuccess(user);
             clearAllUsers();
-            console.log("After login", userData);
+
             history.push("/songsLibrary");
           } else {
             alert("Invalid Password");
           }
         }
-        console.log("After login", userData);
       },
     });
     return (

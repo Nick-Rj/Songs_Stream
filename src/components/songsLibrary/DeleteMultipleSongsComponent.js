@@ -1,34 +1,11 @@
 import React, { Component } from "react";
-import {
-  FloatingLabel,
-  Container,
-  Form,
-  Row,
-  Button,
-  Col,
-  Modal,
-  ListGroup,
-} from "react-bootstrap";
+import { Container, Row, Button, Col, Modal, ListGroup } from "react-bootstrap";
 import "../../assets/styles/DeleteMultipleSongsComponent.css";
 import { connect } from "react-redux";
 import { Link, withRouter, Prompt } from "react-router-dom";
 import { deleteSong, getAllSongs } from "../../redux/store";
 import styled, { keyframes } from "styled-components";
-import {
-  pulse,
-  tada,
-  lightSpeedIn,
-  rollIn,
-  bounce,
-  bounceIn,
-  rubberBand,
-  fadeIn,
-  flash,
-  zoomInUp,
-  slideInUp,
-  jello,
-  swing,
-} from "react-animations";
+import { rubberBand } from "react-animations";
 
 const AnimateDeleteMultipleSongs = styled.div`
   animation: 1.5s ${keyframes`${rubberBand}`};
@@ -46,8 +23,6 @@ export class DeleteMultipleSongsComponent extends Component {
       fitleredSongs: this.props.songData.songs,
       isSubmitted: false,
     };
-
-    console.log("Inside Constructor", this.state.songs);
   }
 
   filterSongs = (song, query) => {
@@ -66,28 +41,14 @@ export class DeleteMultipleSongsComponent extends Component {
     });
   };
 
-  // verifyCheck = (event) => {
-  //   const value = event.target.value;
-  //   for (let i = 0; i < this.state.songs.length; i++) {
-  //     if (value === this.state.songs[i]) {
-  //       return "true";
-  //     }
-  //   }
-  //   return "false";
-  // };
-
   onChange = (event) => {
-    // console.log(event.target.checked);
-
     const isChecked = event.target.checked;
     if (isChecked) {
       this.setState({ songs: [...this.state.songs, event.target.value] });
-      console.log("Adding songs to list", this.state.songs);
     } else {
       const index = this.state.songs.indexOf(event.target.value);
       this.state.songs.splice(index, 1);
       this.setState({ songs: this.state.songs });
-      console.log("After removing songs", this.state.songs);
     }
   };
 
@@ -129,13 +90,10 @@ export class DeleteMultipleSongsComponent extends Component {
 
     this.props.getAllSongs();
 
-    //   this.props.onHide()
     this.props.history.push("/songsLibrary");
   };
 
-  componentDidUpdate() {
-    console.log("Updated State", this.state.songs);
-  }
+  componentDidUpdate() {}
   render() {
     return (
       <div className="DeleteMultipleSongsComponent">
@@ -164,27 +122,7 @@ export class DeleteMultipleSongsComponent extends Component {
               <h1>Hey Buddy, Wanna delete a few songs?</h1>
             </Col>
           </Row>
-          {/* <Row>
-            <Col></Col>
-            <Col>
-              <Form>
-                <Form.Group className="mb-1">
-                  <FloatingLabel label="Search" className="mb-1">
-                    <Form.Control
-                      id="searchData"
-                      type="text"
-                      placeholder="song name"
-                      value={this.state.searchData}
-                      onChange={(event) =>
-                        this.handleSearchChange(event.target.value)
-                      }
-                    />
-                  </FloatingLabel>
-                </Form.Group>
-              </Form>
-            </Col>
-            <Col></Col>
-          </Row> */}
+
           <AnimateDeleteMultipleSongs>
             <Row>
               <Col></Col>
@@ -201,12 +139,9 @@ export class DeleteMultipleSongsComponent extends Component {
                           <span>
                             <input
                               type="checkbox"
-                              // id={`custom-checkbox-${song.id}`}
                               name={song.title}
                               value={song.title}
-                              // checked={this.verifyCheck}
                               onChange={this.onChange}
-                              // onClick={changeHandler}
                             />
                           </span>
                           <span>

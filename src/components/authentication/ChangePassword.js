@@ -5,7 +5,6 @@ import {
   Button,
   Row,
   Col,
-  Card,
   FloatingLabel,
   Container,
   Form,
@@ -13,14 +12,7 @@ import {
 } from "react-bootstrap";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import {
-  NavLink,
-  Link,
-  Redirect,
-  withRouter,
-  useHistory,
-  Prompt,
-} from "react-router-dom";
+import { Link, withRouter, Prompt } from "react-router-dom";
 
 import styled, { keyframes } from "styled-components";
 import { bounceIn } from "react-animations";
@@ -42,7 +34,6 @@ const ChangePassword = withRouter(({ history, userData, updateUser }) => {
   const handleConfirm = () => {
     document.getElementById("currentPass").style.display = "none";
     document.getElementById("newPass").style.display = "block";
-    console.log("Inside Change password", userObj);
   };
 
   const handleUpdatePassword = () => {
@@ -82,13 +73,11 @@ const ChangePassword = withRouter(({ history, userData, updateUser }) => {
       if (values.password === userObj.password) {
         alert("Entered password is same as your current password!");
       } else if (values.password === values.confirmPassword) {
-        // alert("Passwords are same!");
         userObj = {
           ...userObj,
           password: values.password,
         };
-        console.log("User data after update", userObj);
-        console.log("Values", values);
+
         setUserObject(userObj);
         handleShow();
         setIsValidated(false);

@@ -98,11 +98,14 @@ const About = ({ userState }) => {
                     <Card.Body>
                       <Card.Title>Nikhil Raj</Card.Title>
                       <Card.Subtitle className="mb-2 text-muted">
-                        Web Developer
+                        MERN Stack Developer
                       </Card.Subtitle>
                       <Card.Text>
                         <h4 style={{ color: "black" }}>Skills:</h4>
-                        <p>React.js, Redux, TDD, Node.js </p>
+                        <p>
+                          HTML, CSS, JavaScript, ES6, React.js, Redux, TDD,
+                          Node.js, Express.js, MongoDB, Git{" "}
+                        </p>
                       </Card.Text>
                       <Card.Link
                         href="https://github.com/Nick-Rj"

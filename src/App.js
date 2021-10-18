@@ -3,21 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import Dashboard from "./components/dashboard/Dashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import { Provider } from "react-redux";
-import {
-  Col,
-  Container,
-  Row,
-  Button,
-  Accordion,
-  Spinner,
-  Modal,
-  ListGroup,
-  Form,
-  FloatingLabel,
-} from "react-bootstrap";
-import { Link, Prompt } from "react-router-dom";
-import Store from "./redux/store/Store";
+
+import { Col, Container, Row, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 import Registration from "./components/authentication/Registration";
 import UserConfirmation from "./components/authentication/UserConfirmation";
 import Login from "./components/authentication/Login";
@@ -34,19 +23,10 @@ import AddSongsToPlaylist from "./components/playlist/AddSongsToPlaylist";
 import About from "./components/dashboard/About";
 import DeleteSongsFromPlaylist from "./components/playlist/DeleteSongsFromPlaylist";
 import TopPlaylistsChart from "./components/utilities/TopPlaylistsChart";
-import LoaderAnimation from "./components/utilities/LoaderAnimation";
+
 import PromptModal from "./components/utilities/PromptModal";
-// import { ViewDataProvider } from "./components/utilities/ViewDataContext";
 
-import NotFoundPage from "./assets/images/NotFound.jpg";
 import Logo from "./assets/images/Logo.png";
-import { Suspense } from "react";
-
-// const ManagePlaylists = React.lazy(() => {
-//   return new Promise((resolve) => setTimeout(resolve, 5000)).then(() =>
-//     import("./components/playlist/ManagePlaylists")
-//   );
-// });
 
 setTimeout(() => {
   document.getElementById("splashScreen").style.display = "none";

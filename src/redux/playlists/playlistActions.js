@@ -10,7 +10,6 @@ import {
   DELETE_PLAYLIST_SUCCESS,
   DELETE_PLAYLIST_FAILURE,
   UPDATE_PLAYLIST_REQUEST,
-  UPDATE_PLAYLIST_SUCCESS,
   UPDATE_PLAYLIST_FAILURE,
 } from "./playlistTypes";
 
@@ -21,7 +20,6 @@ export const getAllPlaylists = () => {
     axios
       .get("https://songs-stream-data-server-app.herokuapp.com/playlists")
       .then((response) => {
-        console.log("Get all Playlists", response.data);
         dispatch(fetchAllPlaylistsSuccess(response.data));
       })
       .catch((error) => dispatch(fetchAllPlaylistsFailure(error)));
@@ -32,9 +30,11 @@ export const addPlaylist = (values) => {
   return (dispatch) => {
     dispatch(addPlaylistRequest());
     axios
-      .post("https://songs-stream-data-server-app.herokuapp.com/playlists", values)
+      .post(
+        "https://songs-stream-data-server-app.herokuapp.com/playlists",
+        values
+      )
       .then((response) => {
-        console.log("Action Creator: Playlist added", response.data);
         dispatch(addPlaylistSuccess(response.data));
       })
       .catch((error) => dispatch(addPlaylistFailure(error)));
@@ -45,7 +45,9 @@ export const deletePlaylist = (id) => {
   return (dispatch) => {
     dispatch(deletePlaylistRequest());
     axios
-      .delete(`https://songs-stream-data-server-app.herokuapp.com/playlists/${id}`)
+      .delete(
+        `https://songs-stream-data-server-app.herokuapp.com/playlists/${id}`
+      )
       .then(() => {
         dispatch(deletePlaylistSuccess(id));
       })
@@ -57,10 +59,11 @@ export const updatePlaylist = (id, playlist) => {
   return (dispatch) => {
     dispatch(updatePlaylistRequest());
     axios
-      .put(`https://songs-stream-data-server-app.herokuapp.com/playlists/${id}`, playlist)
-      .then((response) => {
-        console.log(response.data);
-      })
+      .put(
+        `https://songs-stream-data-server-app.herokuapp.com/playlists/${id}`,
+        playlist
+      )
+      .then((response) => {})
       .catch((error) => dispatch(updatePlaylistFailure(error)));
   };
 };
@@ -85,16 +88,6 @@ export const fetchAllPlaylistsFailure = (error) => {
     payload: error,
   };
 };
-
-// export const fetchPlaylistByIdRequest = () => {
-//   return {
-//     type: FETCH_PLAYLIST_BY_ID_REQUEST,
-//   };
-// };
-
-// export const fetchPlaylistByIdSuccess=(playlist)=>{
-
-// }
 
 export const addPlaylistRequest = () => {
   return {

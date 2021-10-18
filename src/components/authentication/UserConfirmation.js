@@ -5,15 +5,7 @@ import { Link } from "react-router-dom";
 import { clearCurrentUser } from "../../redux/store";
 import "../../assets/styles/UserConfirmation.css";
 import styled, { keyframes } from "styled-components";
-import {
-  pulse,
-  tada,
-  lightSpeedIn,
-  rollIn,
-  bounceIn,
-  rubberBand,
-  fadeIn,
-} from "react-animations";
+import { fadeIn } from "react-animations";
 
 const AnimateRegisterConfirm = styled.div`
   animation: 1.5s ${keyframes`${fadeIn}`};
@@ -25,7 +17,6 @@ function UserConfirmation({ userData, clearCurrentUser }) {
     "Secondary",
     "Success",
     "Danger",
-    "Warning",
     "Info",
     "Light",
     "Dark",
@@ -35,14 +26,7 @@ function UserConfirmation({ userData, clearCurrentUser }) {
   const selectedVariant = variants[random];
 
   const [user, setUser] = useState(userData.user);
-  // useEffect(() => {
-  //   setUser(userData.user);
-  //   // clearCurrentUser();
-  // }, []);
-  console.log("At user confirmation page", userData);
-  console.log("At user confirmation page", userData.user);
-  console.log("At user confirmation page- user state", user);
-  console.log("At user confirmation page, after clearing user", userData);
+
   return (
     <div className="UserConfirmation">
       <AnimateRegisterConfirm>
